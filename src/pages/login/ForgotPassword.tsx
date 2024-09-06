@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Heading, VStack} from '@gluestack-ui/themed';
 import {Text} from 'react-native';
-import UIInput from '../components/UIInput';
-import UIButton from '../components/UIButton';
+import UIInput from '../../components/UIInput';
+import UIButton from '../../components/UIButton';
 
 export default function ForgotPassword() {
   const [forgotpassword, setForgotPassword] = useState('');

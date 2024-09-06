@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Heading, VStack} from '@gluestack-ui/themed';
-import UIInput from '../components/UIInput';
-import UIButton from '../components/UIButton';
+import UIInput from '../../components/UIInput';
+import UIButton from '../../components/UIButton';
 import {Alert} from 'react-native';
 
 export default function CreateAccount() {

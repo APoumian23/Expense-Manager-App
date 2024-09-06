@@ -1,12 +1,12 @@
 import {Card, Divider, Heading, Text, VStack} from '@gluestack-ui/themed';
 import React, {useState} from 'react';
-import UIInput from '../components/UIInput';
-import UIButton from '../components/UIButton';
+import UIInput from '../../components/UIInput';
+import UIButton from '../../components/UIButton';
 import {Alert} from 'react-native';
-import UILinkButton from '../components/UILinkButton';
+import UILinkButton from '../../components/UILinkButton';
 import {useNavigation} from '@react-navigation/native';
-import {useAppDispatch} from '../redux/hooks';
-import {loginUser} from '../redux/slices/mainSlice';
+import {useAppDispatch} from '../../redux/hooks';
+import {loginUser} from '../../redux/slices/mainSlice';
 
 export default function Login() {
   const [email, setEmail] = useState('ejemplo@gmail.com');

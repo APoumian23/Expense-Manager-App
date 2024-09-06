@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, HStack, Text, VStack} from '@gluestack-ui/themed';
-import UIButton from '../components/UIButton';
-import SummaryItem from '../components/SummaryItem';
+import UIButton from '../../components/UIButton';
+import SummaryItem from '../../components/SummaryItem';
 import {useNavigation} from '@react-navigation/native';
 
 export default function AllItems() {
