@@ -7,6 +7,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AllItems from './AllItems';
 import IncomeItems from './IncomeItems';
 import ExpenseItems from './ExpenseItems';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {
+  faHouse,
+  faMoneyBillTrendUp,
+  faSackXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,17 +38,36 @@ export default function Dashboard() {
       <Tab.Screen
         name="allItems"
         component={AllItems}
-        options={{tabBarLabel: 'Dashboard'}}
+        options={{
+          tabBarLabel: 'Dashboard',
+          tabBarIcon: ({color}) => (
+            <FontAwesomeIcon icon={faHouse} color={color} size={20} />
+          ),
+        }}
       />
       <Tab.Screen
         name="incomeItems"
         component={IncomeItems}
-        options={{tabBarLabel: 'Income'}}
+        options={{
+          tabBarLabel: 'Income',
+          tabBarIcon: ({color}) => (
+            <FontAwesomeIcon
+              icon={faMoneyBillTrendUp}
+              color={color}
+              size={20}
+            />
+          ),
+        }}
       />
       <Tab.Screen
         name="expenseItems"
         component={ExpenseItems}
-        options={{tabBarLabel: 'Expense'}}
+        options={{
+          tabBarLabel: 'Expense',
+          tabBarIcon: ({color}) => (
+            <FontAwesomeIcon icon={faSackXmark} color={color} size={20} />
+          ),
+        }}
       />
     </Tab.Navigator>
   );

@@ -7,6 +7,7 @@ import UILinkButton from '../../components/UILinkButton';
 import {useNavigation} from '@react-navigation/native';
 import {useAppDispatch} from '../../redux/hooks';
 import {loginUser} from '../../redux/slices/mainSlice';
+import {faRightToBracket} from '@fortawesome/free-solid-svg-icons';
 
 export default function Login() {
   const [email, setEmail] = useState('ejemplo@gmail.com');
@@ -83,7 +84,14 @@ export default function Login() {
             onPress={forgetPasswordHandler}
             color="blue"
           />
-          <UIButton title="Login" onPress={loginHandler} />
+          <UIButton
+            hasIcon={true}
+            icon={faRightToBracket}
+            iconColor="white"
+            iconSize={15}
+            title="Login"
+            onPress={loginHandler}
+          />
           <Divider />
           <VStack alignItems="flex-start">
             <UILinkButton

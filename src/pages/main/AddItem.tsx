@@ -1,9 +1,11 @@
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 import React, {useState} from 'react';
 import {HStack, VStack} from '@gluestack-ui/themed';
 import UIButton from '../../components/UIButton';
 import UIInput from '../../components/UIInput';
 import {useNavigation} from '@react-navigation/native';
+import {useAppDispatch} from '../../redux/hooks';
+import {addExpensesItem, addIncomeItem} from '../../redux/slices/mainSlice';
 
 export default function AddItem() {
   const [title, setTitle] = useState('');
@@ -12,6 +14,7 @@ export default function AddItem() {
   const [type, setType] = useState('Expense');
 
   const navigation = useNavigation();
+  const dispatch = useAppDispatch();
 
   function toggleIncomeOrExpenseHandler(type: string) {
     if (type === '-') {
@@ -25,7 +28,41 @@ export default function AddItem() {
     navigation.goBack();
   }
 
-  function addNewItemHandler() {}
+  function addNewItemHandler() {
+    if (!title || !amount) {
+      Alert.alert('Llena los campos');
+      return;
+    }
+
+    if (type === 'Income') {
+      dispatch(
+        addIncomeItem({
+          title: title,
+          des: des,
+          amount: amount,
+          type: type,
+          date: new Date().toLocaleDateString('es-MX'),
+        }),
+      );
+    } else if (type === 'Expense') {
+      dispatch(
+        addExpensesItem({
+          title: title,
+          des: des,
+          amount: amount,
+          type: type,
+          date: new Date().toLocaleDateString('es-MX'),
+        }),
+      );
+    }
+
+    setTitle('');
+    setAmount('');
+    setDes('');
+    setType('Expense');
+
+    navigation.goBack();
+  }
 
   return (
     <VStack gap={30} px={20}>
